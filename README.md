@@ -22,65 +22,28 @@ import MouseParallax from './mouse-parallax';
 ## Initialization
 
 ```js
-var scroller = new PageScroller('.page-scroller', {
+new MouseParallax(container, element, {
     /* your parameters */
-});
+}).init();
     scroller.init();
-```
-
-### Creating a scrollable section
-
-If you want to have section with her own scroll bar, just add class ``` page-scroller__section_scrollable ```.
-
-### Example
-
-```html
-<div class="page-scroller__section page-scroller__section_scrollable" data-anchor="section4">
-    <div class="content">
-        <div class="header">
-            <h1>Section 4 with your scroll</h1>
-        </div>
-        <div class="page">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae pariatur nostrum magnam quo, iure nemo commodi accusantium eos dolore. Earum molestiae eaque fugiat sed expedita repellendus repellat odio inventore.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae pariatur nostrum magnam quo, iure nemo commodi accusantium eos dolore. Earum molestiae eaque fugiat sed expedita repellendus repellat odio inventore.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia recusandae pariatur nostrum magnam quo, iure nemo commodi accusantium eos dolore. Earum molestiae eaque fugiat sed expedita repellendus repellat odio inventore.</p>
-        </div>
-    </div>
-</div>
 ```
 
 # Options
 
-- ```scrollingSpeed```: (default: 700) Speed in milliseconds for the scrolling transitions.
+- ```maxMoveX``` :(default: container width) Defines the maximum number of pixels by which an element can move in X.
 
-- ```loopTop```: (default: false) Defines whether scrolling up in the first section should scroll to the last one or not.
-    
-- ```loopBootom```: (default: false) Defines whether scrolling down in the last section should scroll to the first one or not.
+- ```maxMoveY```: (default: container height) Defines the maximum number of pixels by which an element can move in Y.
 
-- ```keyboardScrolling```: (default: true) Defines if the content can be navigated using the keyboard.
+- ```direction```: (default: distance) Defines the direction of the offset element relative to the pointing device.
 
-- ```animationAnchor```: (default: false) Defines whether the load of the site when given an anchor (#) will scroll with animation to its destination or will directrly load on the given section.
+- ```returnMouseOutContainer```: (default: false) Defines whether return default element's position when a pointing device is moved off the container.
 
-- ```direction```: (default: vertical) Defines direction scroll (vertical or horizontal).
-
-- ```navigation``` (default: false) Defines show navigation.
-
-# Methods
-
-- ```moveSectionUp()```: Scrolls one sectio up.
-
-- ```moveSectionDown()```: Scrolls one section down.
-
-- ```moveTo(numberSection)```: Scrolls the page to the section with specified number (count starts since 1).
-
-- ```setScrollDelay(value)```: Set scroll delay.
-
-- ```setAllowScrolling(boolean)```: Add or remove the possibility of scrolling through sections by using the mouse wheel/trackpad or touchy gestures.
+- ```deep```: (default: 12) The dependece of the movement of the element.
 
 # Callbacks
 
-- ```afterLoad(anchorLink, index)```: Callback fired once the sections have been loaded, after the scrolling has ended.
+- ```onMouseOver()```: Callback fired once when a pointing device is moved onto the container.
 
-- ```onLeave(index, nextIndex, direction)```: Callback fired once the use leaves a section, in the transition to the new section.
+- ```onMouseMove(e)```: Callback fired when pointing device is moved while over an container. Gives mouse event.
 
-- ```afterRender()```: Callback fired just after the structure of the page is generated.
+- ```onMouseOut()```: Callback fired once when a pointing device is moved off the container.
