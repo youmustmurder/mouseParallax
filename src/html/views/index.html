@@ -1,0 +1,11 @@
+<% var data = {
+  title: "Главная"
+}; %>
+<%= _.template(require('./../includes/header.html'))(data) %>
+
+<div class="mouse-parallax">
+  <div class="mouse-parallax__item"></div>
+</div>
+<div class="box"></div>
+
+<%= _.template(require('./../includes/footer.html'))(data) %>
